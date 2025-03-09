@@ -1,17 +1,20 @@
 # All the information important to cataloging.
-"ncviewjs:meta_yaml_url": "https://github.com/leap-stc/MODIS-LAI/blob/main/feedstock/meta.yaml"
+"ncviewjs:meta_yaml_url": "https://github.com/leap-stc/CanopyHeights-GLAD/blob/main/feedstock/meta.yaml"
 tags:
-  - leaf area index
+  - canopy height
   - global
   - remote sensing
-  - MODIS
-  - LAI
-  - GLOBMAP
-  - Beijing Normal University
+  - Sentinel-2
+  - GLA
+  - ETH Global
+  - Canopy Heights
+  - Global Land Analysis and Discovery (GLAD)
+  - vegetation structure
+  - forest monitoring
 
 stores:
-  - id: "modis-lai"
-    name: "MODIS Leaf Area Index"
-    url: "https://nyu1.osn.mghpcc.org/leap-pangeo-pipeline/MODIS_LAI/MODIS_LAI.zarr"
-    source: "Beijing Normal University (BNU) - Global Change Research Group"
-    source_url: "http://globalchange.bnu.edu.cn/research/laiv061_download.jsp"
+  - id: "CanopyHeights-GLA"
+    name: "Canopy Heights GLA"
+    url: "https://nyu1.osn.mghpcc.org/leap-pangeo-pipeline/CanopyHeights-GLAD/CanopyHeights-GLAD.zarr"
+    source: "ETH Global Sentinel-2 10m Canopy Height (2020)"
+    source_url: "https://gee-community-catalog.org/projects/canopy/"
