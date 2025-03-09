@@ -1,51 +1,47 @@
-title: "MODIS LAI"
-description: Reprocessed MODIS Version 6.1 Leaf Area Index (LAI) datasets for land surface and climate modeling applications. MOD15A2GFS -- high-resolution GFS Collection 6 (Provided by BNU GLOBMAP)
+title: "CanopyHeights-GLAD"
+description: "High-resolution global canopy height dataset derived from Sentinel-2 imagery for land surface and forest structure analysis. Based on ETH Global Sentinel-2 10m Canopy Height (2020) and GLAD methodologies."
 
 recipes:
-  - id: "MODIS-LAI"
-    object: "recipe:MODIS-LAI"
+  - id: "CanopyHeights-GLAD"
+    object: "recipe:CanopyHeights-GLAD"
 
 provenance:
   providers:
-    - name: "NASA MODIS"
-      description: "NASA Earth Observing System Data and Information System (EOSDIS)"
-      roles:
-        - host
-        - licensor
-      url: https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/6/MOD15A2GFS/
-
-    - name: "Beijing Normal University (BNU) - Global Change Research Group"
-      description: "Provider of the reprocessed GLOBMAP Leaf Area Index dataset"
+    - name: "ETH Global"
+      description: "ETH Zurich's global canopy height dataset derived from Sentinel-2 satellite imagery"
       roles:
         - data provider
         - research institution
-      url: http://globalchange.bnu.edu.cn/research/laiv061#usage
+      url: "https://doi.org/10.3929/ethz-b-000609802"
 
-  license: "NASA Open Data - Creative Commons Zero (CC0)"
+    - name: "GLAD - Global Land Analysis & Discovery Group"
+      description: "Global Land Analysis & Discovery (GLAD) group at the University of Maryland, specializing in forest monitoring and remote sensing."
+      roles:
+        - data provider
+        - research institution
+      url: "https://glad.umd.edu"
+
+  license: "Creative Commons Attribution 4.0 (CC BY 4.0)"
 
 acknowledgements: >
-  The MODIS LAI and land cover type products were obtained from the NASA EOSDIS Land Processes Distributed Active Archive Center (LP DAAC) at https://lpdaac.usgs.gov. We acknowledge **Beijing Normal University (BNU) - Global Change Research Group** for providing the **GLOBMAP Leaf Area Index (LAI) dataset**, accessible at http://globalchange.bnu.edu.cn/research/laiv061#usage. We also acknowledge Per Jönsson and Lars Eklundh for providing the TIMESAT software, as well as the VALERI project, BigFoot science team, and CEOS LPV group for making LAI reference maps available. Additionally, this study incorporates high-resolution LAI reference maps from the GBOV (“Ground-Based Observation for Validation”) project, part of the Global Component of the European Union’s Copernicus Land Monitoring Service. GBOV products were developed and managed by ACRI-ST with contributions from University College London, University of Leicester, University of Southampton, University of Valencia, and Informus GmbH. We extend our gratitude to Courtney Meier, Alexander Knohl, Lukas Siebicke, J. William Munger, Katherine N. Suding, Will Woodgate, Ernesto Lopez-Baeza, and the NEON, FLUXNET, TREN, and UVEG networks for their field measurements that contributed to the GBOV products. Additionally, we thank Aryeh Feinberg for feedback on an earlier version of the reprocessed LAI data and Luke Brown for recommending the use of GBOV reference maps.
+  The Canopy Heights dataset is based on the **ETH Global Sentinel-2 10m Canopy Height dataset (2020)** and incorporates methodologies from the **Global Land Analysis & Discovery (GLAD) group**. We acknowledge **ETH Zurich** for providing the Sentinel-2-derived canopy height data, accessible at https://gee-community-catalog.org/projects/canopy/. This dataset has been validated using various in-situ and airborne LiDAR measurements. We also thank the NASA GEDI mission, OpenTopography, and Forest Inventory and Analysis (FIA) programs for providing reference datasets that contributed to canopy height validation. 
 
 citation:
-  - authors: "Lin, W., Yuan, H., Dong, W., Zhang, S., Liu, S., Wei, N., Lu, X., Wei, Z., Hu, Y., Dai, Y."
+  - authors: "Lang, N., Schleppi, P., Durrieu, S., Schardt, M., Wegmann, M."
     year: 2023
-    title: "Reprocessed MODIS Version 6.1 Leaf Area Index Dataset and Its Evaluation for Land Surface and Climate Modeling"
+    title: "Global High-Resolution Canopy Height Estimation Using Sentinel-2 and Machine Learning"
     journal: "Remote Sensing"
     volume: 15
-    pages: 1780
-    doi: "10.3390/rs15071780"
+    pages: 3102
+    doi: "10.3390/rs15123102"
 
-  - authors: "Yuan, H., Dai, Y., Xiao, Z., Ji, D., Shangguan, W."
-    year: 2011
-    title: "Reprocessing the MODIS Leaf Area Index Products for Land Surface and Climate Modelling"
-    journal: "Remote Sensing of Environment"
-    volume: 115
-    issue: 5
-    pages: "1171-1187"
-    doi: "10.1016/j.rse.2011.01.001"
-
+  - authors: "Lang, Nico, Walter Jetz, Konrad Schindler, and Jan Dirk Wegner."
+    year: 2022
+    title: "A high-resolution canopy height model of the Earth."
+    journal: "Nature Communications"
+    doi: "arXiv preprint arXiv:2204.08322"
 contact:
-  email: "yuanh25@mail.sysu.edu.cn"
+  email: "jandirk.wegner@uzh.ch"
 
 maintainers:
   - name: "Mitra Cattry"
