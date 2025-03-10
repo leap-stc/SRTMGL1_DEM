@@ -34,19 +34,11 @@ citation:
     volume: 3
     pages: 856903
     doi: "10.3389/frsen.2022.856903"
-    
-  - authors: "Lang, N., Schleppi, P., Durrieu, S., Schardt, M., Wegmann, M."
-    year: 2023
-    title: "Global High-Resolution Canopy Height Estimation Using Sentinel-2 and Machine Learning"
-    journal: "Remote Sensing"
-    volume: 15
-    pages: 3102
-    doi: "10.3390/rs15123102"
 
   - authors: "Lang, Nico, Walter Jetz, Konrad Schindler, and Jan Dirk Wegner."
     year: 2022
     title: "A high-resolution canopy height model of the Earth."
-    journal: "Nature Communications"
+    journal: "Nature Ecology & Evolution"
     doi: "arXiv preprint arXiv:2204.08322"
 contact:
   email: "jandirk.wegner@uzh.ch"
