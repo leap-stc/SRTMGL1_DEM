@@ -70,7 +70,6 @@ def read_file(file_name: str,base_url: str)-> xr.Dataset:
 
                 return ds
                 
-    return ds
 
 
 
