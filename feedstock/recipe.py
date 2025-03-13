@@ -103,4 +103,4 @@ store = "https://nyu1.osn.mghpcc.org/leap-pangeo-pipeline/
 CanopyHeights-GLAD/
 CanopyHeights-GLAD.zarr"
 ds = xr.open_dataset(store, engine="zarr", chunks={})
-ds.isel(time=0).lai.plot()
+ds.isel(time=0).canopy_height.plot()
