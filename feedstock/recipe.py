@@ -3,6 +3,7 @@
 
 import requests
 import rioxarray as rxr
+import xarray as xr
 import numpy as np
 import re
 from rasterio.io import MemoryFile
