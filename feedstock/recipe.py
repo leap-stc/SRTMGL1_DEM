@@ -55,6 +55,8 @@ def read_file(file_name: str,base_url: str)-> xr.Dataset:
                 da_std = rxr.open_rasterio(src_std).squeeze()
                 ch = da_mean.values
                 std = da_std.values
+                ch = np.where(ch == 255, np.nan, ch)
+                std = np.where(std == 255, np.nan, std)
                 lon_ch, lat_ch = np.meshgrid(da_mean.x.values, da_mean.y.values)
                 date = pd.to_datetime(f"2020-1", format="%Y-%j")#only one date as it is static variable
                 ds = xr.Dataset(
