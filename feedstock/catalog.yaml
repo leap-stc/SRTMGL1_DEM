@@ -1,20 +1,19 @@
-# All the information important to cataloging.
-"ncviewjs:meta_yaml_url": "https://github.com/leap-stc/CanopyHeights-GLAD/blob/main/feedstock/meta.yaml"
+"ncviewjs:meta_yaml_url": "https://github.com/grace-grace-fo-tws/meta.yaml"
 tags:
-  - canopy height
-  - global
-  - remote sensing
-  - Sentinel-2
-  - GLA
-  - ETH Global
-  - Canopy Heights
-  - Global Land Analysis and Discovery (GLAD)
-  - vegetation structure
-  - forest monitoring
+  - GRACE
+  - GRACE-FO
+  - Total Water Storage (TWS)
+  - Earth Observation
+  - Satellite Data
+  - Global
+  - Remote Sensing
+  - Hydrology
+  - Climate Monitoring
+  - Water Resources
 
 stores:
-  - id: "CanopyHeights-GLA"
-    name: "Canopy Heights GLA"
-    url: "https://nyu1.osn.mghpcc.org/leap-pangeo-pipeline/CanopyHeights-GLAD/CanopyHeights-GLAD.zarr"
-    source: "ETH Global Sentinel-2 10m Canopy Height (2020)"
-    source_url: "https://gee-community-catalog.org/projects/canopy/"
+  - id: "GRACE-GRACE-FO-TWS"
+    name: "GRACE & GRACE-FO Total Water Storage (TWS)"
+    url: "https://data.jpl.nasa.gov/grace-fo-tws.zarr"
+    source: "GRACE/GRACE-FO Satellite Mission Data (2002–Present)"
+    source_url: "https://www.nasa.gov/mission_pages/grace/index.html"
