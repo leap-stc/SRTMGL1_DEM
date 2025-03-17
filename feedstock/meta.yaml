@@ -1,47 +1,50 @@
-title: "CanopyHeights-GLAD"
-description: "High-resolution global canopy height dataset derived from Sentinel-2 imagery for land surface and forest structure analysis. Based on ETH Global Sentinel-2 10m Canopy Height (2023) and GLAD methodologies."
+title: "GRACE-GRACE-FO-TWS"
+description: "Global Total Water Storage (TWS) data derived from GRACE and GRACE-FO satellite missions. This dataset is used for hydrological and climate monitoring, assessing water resources on a global scale."
 
 recipes:
-  - id: "CanopyHeights-GLAD"
-    object: "recipe:CanopyHeights-GLAD"
+  - id: "GRACE-GRACE-FO-TWS"
+    object: "recipe:GRACE-GRACE-FO-TWS"
 
 provenance:
   providers:
-    - name: "ETH Global"
-      description: "ETH Zurich's global canopy height dataset derived from Sentinel-2 satellite imagery"
+    - name: "NASA GRACE & GRACE-FO Mission"
+      description: "NASA's GRACE and GRACE-FO missions measure changes in Earth's water storage, using satellite gravimetry data to monitor total water storage variations worldwide."
       roles:
         - data provider
         - research institution
-      url: "https://doi.org/10.3929/ethz-b-000609802"
+      url: "https://www.nasa.gov/mission_pages/grace/index.html"
 
-    - name: "GLAD - Global Land Analysis & Discovery Group"
-      description: "Global Land Analysis & Discovery (GLAD) group at the University of Maryland, specializing in forest monitoring and remote sensing."
+    - name: "Jet Propulsion Laboratory (JPL)"
+      description: "The Jet Propulsion Laboratory (JPL) processes GRACE and GRACE-FO satellite data for Earth science research and water storage monitoring."
       roles:
         - data provider
         - research institution
-      url: "https://glad.umd.edu"
+      url: "https://www.jpl.nasa.gov/"
 
   license: "Creative Commons Attribution 4.0 (CC BY 4.0)"
 
 acknowledgements: >
-  The Canopy Heights dataset is based on the **ETH Global Sentinel-2 10m Canopy Height dataset (2020)** and incorporates methodologies from the **Global Land Analysis & Discovery (GLAD) group**. We acknowledge **ETH Zurich** for providing the Sentinel-2-derived canopy height data, accessible at https://gee-community-catalog.org/projects/canopy/. This dataset has been validated using various in-situ and airborne LiDAR measurements. We also thank the NASA GEDI mission, OpenTopography, and Forest Inventory and Analysis (FIA) programs for providing reference datasets that contributed to canopy height validation. 
+  The GRACE and GRACE-FO Total Water Storage dataset is based on data from NASA's GRACE and GRACE-FO missions, which measure Earth's gravity field variations to monitor changes in global water storage. We acknowledge the **NASA GRACE and GRACE-FO mission teams** for providing the satellite gravimetry data, which is accessible at [NASA GRACE page](https://www.nasa.gov/mission_pages/grace/index.html). The dataset has been validated through comparisons with hydrological models, in-situ measurements, and other water resources monitoring efforts.
 
 citation:
-  - authors: "Potapov, P., Hansen, M.C., Pickens, A., Hernandez-Serna, A., Tyukavina, A., Turubanova, S., Zalles, V., Li, X., Khan, A., Stolle, F., Harris, N., Song, X.-P., Baggett, A., Kommareddy, I., Kommareddy, A."
-    year: 2022
-    title: "The global 2000-2020 land cover and land use change dataset derived from the Landsat archive: first results"
-    journal: "Frontiers in Remote Sensing"
-    volume: 3
-    pages: 856903
-    doi: "10.3389/frsen.2022.856903"
+  - authors: "Landerer, F.W., Swenson, S.C."
+    year: 2012
+    title: "Accuracy of scaled GRACE terrestrial water storage estimates."
+    journal: "Water Resources Research"
+    volume: 48
+    pages: W04531
+    doi: "10.1029/2011WR011453"
 
-  - authors: "Lang, Nico, Walter Jetz, Konrad Schindler, and Jan Dirk Wegner."
-    year: 2022
-    title: "A high-resolution canopy height model of the Earth."
-    journal: "Nature Ecology & Evolution"
-    doi: "arXiv preprint arXiv:2204.08322"
+  - authors: "Wahr, J., Molenaar, M., & Bryan, F."
+    year: 1998
+    title: "Time-variable gravity from satellite observations."
+    journal: "Journal of Geophysical Research"
+    volume: 103
+    pages: 30205-30229
+    doi: "10.1029/98JB02844"
+
 contact:
-  email: "jandirk.wegner@uzh.ch"
+  email: "grace@nasa.gov"
 
 maintainers:
   - name: "Mitra Cattry"
