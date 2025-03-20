@@ -1,19 +1,19 @@
-"ncviewjs:meta_yaml_url": "https://github.com/grace-grace-fo-tws/meta.yaml"
+"ncviewjs:meta_yaml_url": "https://github.com/leap-stc/SRTMGL1_DEM/blob/main/feedstock/meta.yaml"
 tags:
-  - GRACE
-  - GRACE-FO
-  - Total Water Storage (TWS)
+  - SRTM
+  - DEM
+  - Digital Elevation Model
   - Earth Observation
-  - Satellite Data
-  - Global
   - Remote Sensing
-  - Hydrology
-  - Climate Monitoring
-  - Water Resources
+  - NASA
+  - Topography
+  - Global
+  - Terrain Mapping
+  - Geospatial Data
 
 stores:
-  - id: "GRACE-GRACE-FO-TWS"
-    name: "GRACE & GRACE-FO Total Water Storage (TWS)"
-    url: "https://data.jpl.nasa.gov/grace-fo-tws.zarr"
-    source: "GRACE/GRACE-FO Satellite Mission Data (2002–Present)"
-    source_url: "https://www.nasa.gov/mission_pages/grace/index.html"
+  - id: "SRTMGL1-DEM"
+    name: "SRTMGL1 Digital Elevation Model (DEM)"
+    url: "https://e4ftl01.cr.usgs.gov//SRTMGL1.003"
+    source: "NASA Shuttle Radar Topography Mission (SRTM) Global 1-Arc Second Data"
+    source_url: "https://www2.jpl.nasa.gov/srtm/"
