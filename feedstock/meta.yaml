@@ -1,21 +1,21 @@
-title: "GRACE-GRACE-FO-TWS"
-description: "Global Total Water Storage (TWS) data derived from GRACE and GRACE-FO satellite missions. This dataset is used for hydrological and climate monitoring, assessing water resources on a global scale."
+title: "SRTMGL1-DEM"
+description: "Global 1-Arc Second Digital Elevation Model (DEM) derived from NASA's Shuttle Radar Topography Mission (SRTM). This dataset provides high-resolution topographic data for applications in hydrology, climate modeling, and terrain analysis."
 
 recipes:
-  - id: "GRACE-GRACE-FO-TWS"
-    object: "recipe:GRACE-GRACE-FO-TWS"
+  - id: "SRTMGL1-DEM"
+    object: "recipe:SRTMGL1-DEM"
 
 provenance:
   providers:
-    - name: "NASA GRACE & GRACE-FO Mission"
-      description: "NASA's GRACE and GRACE-FO missions measure changes in Earth's water storage, using satellite gravimetry data to monitor total water storage variations worldwide."
+    - name: "NASA Shuttle Radar Topography Mission (SRTM)"
+      description: "NASA's SRTM mission collected high-resolution elevation data for nearly the entire Earth's land surface using radar interferometry."
       roles:
         - data provider
         - research institution
-      url: "https://www.nasa.gov/mission_pages/grace/index.html"
+      url: "https://www2.jpl.nasa.gov/srtm/"
 
     - name: "Jet Propulsion Laboratory (JPL)"
-      description: "The Jet Propulsion Laboratory (JPL) processes GRACE and GRACE-FO satellite data for Earth science research and water storage monitoring."
+      description: "JPL processes SRTM data for global digital elevation modeling, supporting geospatial analysis and environmental research."
       roles:
         - data provider
         - research institution
@@ -24,27 +24,19 @@ provenance:
   license: "Creative Commons Attribution 4.0 (CC BY 4.0)"
 
 acknowledgements: >
-  The GRACE and GRACE-FO Total Water Storage dataset is based on data from NASA's GRACE and GRACE-FO missions, which measure Earth's gravity field variations to monitor changes in global water storage. We acknowledge the **NASA GRACE and GRACE-FO mission teams** for providing the satellite gravimetry data, which is accessible at [NASA GRACE page](https://www.nasa.gov/mission_pages/grace/index.html). The dataset has been validated through comparisons with hydrological models, in-situ measurements, and other water resources monitoring efforts.
+  The SRTMGL1 Digital Elevation Model is based on data from NASA's Shuttle Radar Topography Mission (SRTM), which provided global elevation data with unprecedented accuracy. We acknowledge the **NASA SRTM mission team** and the **Jet Propulsion Laboratory (JPL)** for processing and maintaining this dataset. The dataset is widely used for geospatial applications, hydrological modeling, and terrain analysis.
 
 citation:
-  - authors: "Landerer, F.W., Swenson, S.C."
-    year: 2012
-    title: "Accuracy of scaled GRACE terrestrial water storage estimates."
-    journal: "Water Resources Research"
-    volume: 48
-    pages: W04531
-    doi: "10.1029/2011WR011453"
-
-  - authors: "Wahr, J., Molenaar, M., & Bryan, F."
-    year: 1998
-    title: "Time-variable gravity from satellite observations."
-    journal: "Journal of Geophysical Research"
-    volume: 103
-    pages: 30205-30229
-    doi: "10.1029/98JB02844"
+  - authors: "Farr, T.G., Rosen, P.A., Caro, E., et al."
+    year: 2007
+    title: "The Shuttle Radar Topography Mission."
+    journal: "Reviews of Geophysics"
+    volume: 45
+    pages: RG2004
+    doi: "10.1029/2005RG000183"
 
 contact:
-  email: "grace@nasa.gov"
+  email: "srtm@nasa.gov"
 
 maintainers:
   - name: "Mitra Cattry"
