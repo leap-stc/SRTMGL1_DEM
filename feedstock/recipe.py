@@ -6,7 +6,7 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 client = Client()
 client
-
+# Shuttle Radar Topography Mission (SRTM) Global 1-Arc Second Digital Elevation Model (DEM) is saved to zarr
 # Log in to NASA Earthdata
 auth = earthaccess.login(strategy="interactive")
 
