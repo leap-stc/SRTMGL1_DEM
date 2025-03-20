@@ -85,7 +85,7 @@ fs = s3fs.S3FileSystem(
 )
 mapper = fs.get_mapper(os.path.join(root_dir,product_name,f"{product_name}.zarr"))
 
-ds.chunk({"time": 1, "lat": 3601, "lon": 3601}).to_zarr(
+cds.chunk({"time": 1, "lat": 3601, "lon": 3601}).to_zarr(
     mapper, mode="w", consolidated=True
 )
 
