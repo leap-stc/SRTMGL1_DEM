@@ -30,7 +30,9 @@ product_name = "SRTMGL1_DEM"
 zarr_path = os.path.join(root_dir, f"{product_name}.zarr")
 
 # Use s3fs for writing
-fs = s3fs.S3FileSystem(client_kwargs={"endpoint_url": base_dir})
+fs = s3fs.S3FileSystem(
+    key="", secret="", client_kwargs={"endpoint_url": base_dir}
+)
 store = fs.get_mapper(zarr_path)
 
 
