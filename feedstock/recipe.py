@@ -7,8 +7,6 @@ import matplotlib.pyplot as plt
 import warnings
 import s3fs
 from dask.distributed import Client
-from obstore.fsspec import AsyncFsspecStore
-from obstore.store import S3Store
 
 # ───────────────────────────────────────────────
 # 1. Setup
@@ -35,19 +33,9 @@ zarr_path = os.path.join(root_dir, f"{product_name}.zarr")
 fs = s3fs.S3FileSystem(client_kwargs={"endpoint_url": base_dir})
 store = fs.get_mapper(zarr_path)
 
-# ───────────────────────────────────────────────
-# 4. Optional: Use obstore for reading
-# ───────────────────────────────────────────────
-read_store = S3Store(
-    zarr_path,
-    aws_endpoint=base_dir,
-    access_key_id="",
-    secret_access_key=""
-)
-read_fss = AsyncFsspecStore(read_store)
 
 # ───────────────────────────────────────────────
-# 5. Search for Global SRTMGL1 NetCDF Files
+# 4. Search for Global SRTMGL1 NetCDF Files
 # ───────────────────────────────────────────────
 search_results = earthaccess.search_data(
     short_name="SRTMGL1_NC",
@@ -55,7 +43,7 @@ search_results = earthaccess.search_data(
 )
 
 # ───────────────────────────────────────────────
-# 6. Define File Reader
+# 5. Define File Reader
 # ───────────────────────────────────────────────
 def open_remote_file(file_url: str) -> xr.Dataset:
     try:
@@ -76,7 +64,7 @@ def open_remote_file(file_url: str) -> xr.Dataset:
         return None
 
 # ───────────────────────────────────────────────
-# 7. Loop through tiles and write to Zarr
+# 6. Loop through tiles and write to Zarr
 # ───────────────────────────────────────────────
 first_written = False
 for i, result in enumerate(search_results):
@@ -100,7 +88,7 @@ for i, result in enumerate(search_results):
             ds.to_zarr(store, mode="a", consolidated=False, append_dim="time")
 
 # ───────────────────────────────────────────────
-# 8. Visualise One Tile from Remote Store
+# 7. Visualise One Tile from Remote Store
 # ───────────────────────────────────────────────
 ds = xr.open_dataset(read_fss, engine="zarr", chunks={})
 ds.isel(time=0).elevation.plot(cmap="terrain")
