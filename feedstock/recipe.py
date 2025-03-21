@@ -28,12 +28,12 @@ base_dir = "https://nyu1.osn.mghpcc.org"
 root_dir = "leap-pangeo-pipeline"
 product_name = "SRTMGL1_DEM"
 zarr_path = os.path.join(base_dir,root_dir, f"{product_name}.zarr")
-
+mapper_path = os.path.join(root_dir, f"{product_name}.zarr")
 # Use s3fs for writing
 fs = s3fs.S3FileSystem(
     key="", secret="", client_kwargs={"endpoint_url": base_dir}
 )
-store = fs.get_mapper(zarr_path)
+store = fs.get_mapper(mapper_path)
 
 
 # ───────────────────────────────────────────────
