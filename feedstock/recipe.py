@@ -92,7 +92,7 @@ for i, result in enumerate(search_results):
 # ───────────────────────────────────────────────
 # 7. Visualise One Tile from Remote Store
 # ───────────────────────────────────────────────
-ds = xr.open_dataset(store, engine="zarr", chunks={})
+ds = xr.open_dataset(zarr_path, engine="zarr", chunks={})
 ds.isel(time=0).elevation.plot(cmap="terrain")
 plt.title("SRTM 1-Arc Second Elevation")
 plt.xlabel("Longitude")
