@@ -27,7 +27,7 @@ session = earthaccess.get_requests_https_session()
 base_dir = "https://nyu1.osn.mghpcc.org"
 root_dir = "leap-pangeo-pipeline"
 product_name = "SRTMGL1_DEM"
-zarr_path = os.path.join(root_dir, f"{product_name}.zarr")
+zarr_path = os.path.join(base_dir,root_dir, f"{product_name}.zarr")
 
 # Use s3fs for writing
 fs = s3fs.S3FileSystem(
@@ -92,7 +92,7 @@ for i, result in enumerate(search_results):
 # ───────────────────────────────────────────────
 # 7. Visualise One Tile from Remote Store
 # ───────────────────────────────────────────────
-ds = xr.open_dataset(read_fss, engine="zarr", chunks={})
+ds = xr.open_dataset(store, engine="zarr", chunks={})
 ds.isel(time=0).elevation.plot(cmap="terrain")
 plt.title("SRTM 1-Arc Second Elevation")
 plt.xlabel("Longitude")
