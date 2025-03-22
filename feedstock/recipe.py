@@ -58,8 +58,13 @@ def open_remote_file(file_url: str) -> xr.Dataset:
 
         time = datetime(2000, 2, 11)  # Static acquisition time
         return xr.Dataset(
-            {"elevation": ("lat", "lon", ds["SRTMGL1_DEM"].values)},
-            coords={"time": [time], "lat": ds["lat"].values, "lon": ds["lon"].values}
+            {"elevation": (["lat", "lon"], ds["SRTMGL1_DEM"].values)},
+            coords={
+                "tile_id": [i],#must be unique
+                "time": [datetime(2000, 2, 11)],
+                "lat": ds["lat"].values,
+                "lon": ds["lon"].values
+            }
         )
     except Exception as e:
         print(f"❌ Failed to open {file_url}: {e}")
@@ -87,7 +92,7 @@ for i, result in enumerate(search_results):
             ds.to_zarr(store, mode="w", consolidated=False)
             first_written = True
         else:
-            ds.to_zarr(store, mode="a", consolidated=False, append_dim="time")
+            ds.to_zarr(store, mode="a", consolidated=False, append_dim="tile_id")
 
 # ───────────────────────────────────────────────
 # 7. Visualise One Tile from Remote Store
