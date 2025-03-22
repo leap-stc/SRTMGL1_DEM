@@ -87,7 +87,7 @@ for i, result in enumerate(search_results):
 
     ds = open_remote_file(file_url)
     if ds:
-        ds = ds.chunk({"tile_id": 100,"time": 1, "lat": 3601, "lon": 3601})
+        ds = ds.chunk({"tile_id": 1,"time":1, "lat": 1000, "lon": 1000})
         if not first_written:
             ds.to_zarr(store, mode="w", consolidated=False)
             first_written = True
