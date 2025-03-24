@@ -47,7 +47,7 @@ search_results = earthaccess.search_data(
 # ───────────────────────────────────────────────
 # 5. Define File Reader
 # ───────────────────────────────────────────────
-def open_remote_file(file_url: str) -> xr.Dataset:
+def open_remote_file(file_url: str, i: int) -> xr.Dataset:
     try:
         ds = xr.open_dataset(
             fsspec.open(file_url, headers=session.headers).open(),
@@ -85,7 +85,7 @@ for i, result in enumerate(search_results):
     if not file_url:
         continue
 
-    ds = open_remote_file(file_url)
+    ds = open_remote_file(file_url, i)
     if ds:
         ds = ds.chunk({"tile_id": 1,"time":1, "lat": 1000, "lon": 1000})
         if not first_written:
