@@ -17,18 +17,19 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler(log_filename, mode='w'),
-        logging.StreamHandler(sys.stdout)
-    ]
+        logging.FileHandler(log_filename, mode="w"),
+        logging.StreamHandler(sys.stdout),
+    ],
 )
 
 warnings.filterwarnings("ignore")
+
 
 def open_remote_file(url, i, session):
     """Read one tile, return a 1‐tile Dataset or None."""
     max_attempts, wait = 5, 5
     ds = None
-    for attempt in range(1, max_attempts+1):
+    for attempt in range(1, max_attempts + 1):
         try:
             logging.info("→ Attempt %d/%d opening %s", attempt, max_attempts, url)
             with fsspec.open(url, headers=session.headers).open() as f:
@@ -53,23 +54,18 @@ def open_remote_file(url, i, session):
     lon2d = ds["lon"].values[np.newaxis, :]
     lat_vals = ds["lat"].values
     lon_vals = ds["lon"].values
-    logging.info(
-        "Tile %d lat range: %.6f → %.6f", 
-        i, lat_vals.min(), lat_vals.max()
-    )
-    logging.info(
-        "Tile %d lon range: %.6f → %.6f", 
-        i, lon_vals.min(), lon_vals.max()
-    )
+    logging.info("Tile %d lat range: %.6f → %.6f", i, lat_vals.min(), lat_vals.max())
+    logging.info("Tile %d lon range: %.6f → %.6f", i, lon_vals.min(), lon_vals.max())
     ds_tile = xr.Dataset(
         {
-            "elevation": (["tile_id","y","x"], dem.values),
-            "lat":       (["tile_id","lat"],  lat2d),
-            "lon":       (["tile_id","lon"],  lon2d),
+            "elevation": (["tile_id", "y", "x"], dem.values),
+            "lat": (["tile_id", "lat"], lat2d),
+            "lon": (["tile_id", "lon"], lon2d),
         },
-        coords={"tile_id":[i], "time":[datetime(2000,2,11)]}
+        coords={"tile_id": [i], "time": [datetime(2000, 2, 11)]},
     )
     return ds_tile
+
 
 def process_data(zarr_path, product_name):
     # failure log
@@ -81,8 +77,7 @@ def process_data(zarr_path, product_name):
     session = earthaccess.get_requests_https_session()
 
     search_results = earthaccess.search_data(
-        short_name="SRTMGL1_NC",
-        bounding_box=(-180,-90,180,90)
+        short_name="SRTMGL1_NC", bounding_box=(-180, -90, 180, 90)
     )
 
     first_written = False
@@ -90,9 +85,12 @@ def process_data(zarr_path, product_name):
 
     for i, result in enumerate(search_results):
         file_url = next(
-            (u["URL"] for u in result["umm"]["RelatedUrls"]
-                       if u["URL"].endswith(".nc")),
-            None
+            (
+                u["URL"]
+                for u in result["umm"]["RelatedUrls"]
+                if u["URL"].endswith(".nc")
+            ),
+            None,
         )
         if not file_url:
             continue
@@ -109,12 +107,9 @@ def process_data(zarr_path, product_name):
         # once we have two, or at the end, flush them together
         if len(buffer) == 2:
             combined = xr.concat(buffer, dim="tile_id")
-            combined = combined.chunk({
-                "time":1,
-                "tile_id":2,
-                "lat":6000,
-                "lon":4000
-            })
+            combined = combined.chunk(
+                {"time": 1, "tile_id": 2, "lat": 6000, "lon": 4000}
+            )
 
             if not first_written:
                 combined.to_zarr(zarr_path, mode="w", consolidated=True)
@@ -127,16 +122,14 @@ def process_data(zarr_path, product_name):
     # flush a final odd tile if present
     if buffer:
         combined = xr.concat(buffer, dim="tile_id")
-        combined = combined.chunk({
-            "time":1,
-            "tile_id":len(buffer),
-            "lat":6000,
-            "lon":4000
-        })
+        combined = combined.chunk(
+            {"time": 1, "tile_id": len(buffer), "lat": 6000, "lon": 4000}
+        )
         combined.to_zarr(zarr_path, mode="a", append_dim="tile_id")
 
+
 if __name__ == "__main__":
-    root_dir    = "gs://leap-persistent/data-library"
-    product_name= "SRTMGL1_DEM"
-    zarr_path   = os.path.join(root_dir, product_name, f"{product_name}.zarr")
+    root_dir = "gs://leap-persistent/data-library"
+    product_name = "SRTMGL1_DEM"
+    zarr_path = os.path.join(root_dir, product_name, f"{product_name}.zarr")
     process_data(zarr_path, product_name)

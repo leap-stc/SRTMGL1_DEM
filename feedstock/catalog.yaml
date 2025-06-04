@@ -15,5 +15,3 @@ stores:
   - id: "SRTMGL1-DEM"
     name: "SRTMGL1 Digital Elevation Model (DEM)"
     url: "gs://leap-persistent/data-library/SRTMGL1_DEM/SRTMGL1_DEM.zarr"
-    source: "NASA Shuttle Radar Topography Mission (SRTM) Global 1-Arc Second Data"
-    source_url: "https://www2.jpl.nasa.gov/srtm/"
