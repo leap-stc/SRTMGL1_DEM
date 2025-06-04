@@ -1,10 +1,11 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+# Ignore everything
+*
 
-# C extensions
-*.so
+# But not these files:
+!catalog.yaml
+!meta.yaml
+!recipe.py
+
 
 # Distribution / packaging
 .Python
