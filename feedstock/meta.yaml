@@ -20,26 +20,8 @@ provenance:
         - data provider
         - research institution
       url: "https://www.jpl.nasa.gov/"
-
   license: "Creative Commons Attribution 4.0 (CC BY 4.0)"
-
-acknowledgements: >
-  The SRTMGL1 Digital Elevation Model is based on data from NASA's Shuttle Radar Topography Mission (SRTM), which provided global elevation data with unprecedented accuracy. We acknowledge the **NASA SRTM mission team** and the **Jet Propulsion Laboratory (JPL)** for processing and maintaining this dataset. The dataset is widely used for geospatial applications, hydrological modeling, and terrain analysis.
-
-citation:
-  - authors: "Farr, T.G., Rosen, P.A., Caro, E., et al."
-    year: 2007
-    title: "The Shuttle Radar Topography Mission."
-    journal: "Reviews of Geophysics"
-    volume: 45
-    pages: RG2004
-    doi: "10.1029/2005RG000183"
-
-contact:
-  email: "srtm@nasa.gov"
 
 maintainers:
   - name: "Mitra Cattry"
     github: "mitraA90"
-  - name: "Raphael Hagen"
-    github: "norlandrhagen"
